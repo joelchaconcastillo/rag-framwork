@@ -64,9 +64,17 @@ export OPENAI_API_KEY="your-openai-key"
 export GOOGLE_API_KEY="your-google-key"
 ```
 
-Note: The framework can work without API keys using local sentence-transformers for embeddings.
+Note: The framework can work without API keys using local embeddings and the simple example.
 
-### 2. Run the example
+### 2. Run the simple example (no API keys needed)
+
+```bash
+python simple_example.py
+```
+
+This demonstrates core functionality without requiring API keys or external model downloads.
+
+### 3. Run the full example (requires API keys for question generation)
 
 ```bash
 python example_usage.py

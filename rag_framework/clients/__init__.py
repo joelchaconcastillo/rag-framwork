@@ -7,6 +7,7 @@ from .embedding_client import (
     SentenceTransformerEmbeddingClient,
     get_embedding_client,
 )
+from .simple_embedding import SimpleHashEmbeddingClient
 
 __all__ = [
     "BaseLLMClient",
@@ -16,5 +17,6 @@ __all__ = [
     "BaseEmbeddingClient",
     "OpenAIEmbeddingClient",
     "SentenceTransformerEmbeddingClient",
+    "SimpleHashEmbeddingClient",
     "get_embedding_client",
 ]

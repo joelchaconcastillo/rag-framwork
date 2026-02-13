@@ -115,10 +115,19 @@ def main():
     print(f"   Document title: {structure.get('title', 'N/A')}")
     print(f"   Number of sections: {len(structure.get('sections', []))}")
     
-    # Step 3: Initialize clients (using sentence-transformer to avoid API keys)
+    # Step 3: Initialize clients (using simple embeddings for testing)
     print("\n3. Initializing clients...")
-    print("   Using sentence-transformer for embeddings (no API key required)")
-    embedding_client = get_embedding_client("sentence-transformer")
+    
+    # Try to use sentence-transformer, fall back to simple embeddings if needed
+    try:
+        print("   Attempting to use sentence-transformer for embeddings...")
+        embedding_client = get_embedding_client("sentence-transformer")
+        print("   Using sentence-transformer for embeddings")
+    except Exception as e:
+        print(f"   Sentence-transformer unavailable: {str(e)[:50]}...")
+        print("   Using simple hash-based embeddings (for demo only)")
+        from rag_framework.clients import SimpleHashEmbeddingClient
+        embedding_client = SimpleHashEmbeddingClient()
     
     # For LLM, we'll use a mock client if no API key is available
     try:
